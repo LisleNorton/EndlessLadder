@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour {
         PointerEventData eventData = new PointerEventData(EventSystem.current);
         eventData.position = mousePosition;
         List<RaycastResult> raycastResults = new List<RaycastResult>();
-        //向点击位置发射一条射线，检测是否点击的UI
+        //射线检测
         EventSystem.current.RaycastAll(eventData, raycastResults);
         return raycastResults.Count > 0;
     }
@@ -234,10 +234,7 @@ public class PlayerController : MonoBehaviour {
        
 	}
     /// <summary>
-    /// 跳跃的碰撞穿过检查
-    /// isTrigger碰撞
-    /// (条件:都有Conlider,一方Rigidbody,一方Conlider is Trigger)
-    /// (需要两个Conlider)
+    /// 跳跃的触发器检查
     /// </summary>
     private void OnTriggerEnter2D(Collider2D collision)//
 	{
@@ -252,10 +249,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
     /// <summary>
-    /// 吃到砖石的碰撞检查 
-    /// OnCollsionEnter2D(Collider2D collision) 
-    /// 条件两物体Collider的isTrigger都不勾选，
-    /// 都有Collider、Rigidbody.
+    /// 吃到砖石的碰撞器检查 
     /// </summary>
     private void OnCollisionEnter2D(Collision2D collision)//
     {
